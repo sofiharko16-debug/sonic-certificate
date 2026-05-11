@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sonich Certificate</title>
+
+<style>
+
+body{
+margin:0;
+padding:0;
+background:#f5f5f5;
+font-family:Arial,sans-serif;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.certificate{
+position:relative;
+width:1200px;
+max-width:95%;
+}
+
+.certificate img{
+width:100%;
+display:block;
+border-radius:20px;
+}
+
+.name{
+position:absolute;
+top:58%;
+left:12%;
+font-size:42px;
+font-weight:700;
+color:#000;
+}
+
+.from{
+position:absolute;
+top:66%;
+left:12%;
+font-size:28px;
+color:#000;
+}
+
+.message{
+position:absolute;
+top:74%;
+left:12%;
+width:35%;
+font-size:22px;
+line-height:1.5;
+color:#000;
+}
+
+.id{
+position:absolute;
+bottom:8%;
+left:12%;
+font-size:24px;
+font-weight:600;
+color:#000;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="certificate">
+
+<img src="certificate.jpg">
+
+<div class="name" id="name">
+Кому: Анне
+</div>
+
+<div class="from" id="from">
+От: Максима
+</div>
+
+<div class="message" id="message">
+Пусть эта фотосессия подарит тебе яркие эмоции и красивые воспоминания ✨
+</div>
+
+<div class="id" id="certid">
+Сертификат № MS-00124
+</div>
+
+</div>
+
+<script>
+
+const path = window.location.pathname.split("/").pop();
+
+const data = {
+
+anna: {
+name:"Кому: Анне",
+from:"От: Максима",
+message:"Пусть эта фотосессия подарит тебе яркие эмоции и красивые воспоминания ✨",
+id:"Сертификат № MS-00124"
+},
+
+maria: {
+name:"Кому: Марии",
+from:"От: Алексея",
+message:"Желаю тебе незабываемых эмоций и красивых кадров ✨",
+id:"Сертификат № MS-00125"
+}
+
+};
+
+if(data[path]){
+
+document.getElementById("name").innerText = data[path].name;
+document.getElementById("from").innerText = data[path].from;
+document.getElementById("message").innerText = data[path].message;
+document.getElementById("certid").innerText = data[path].id;
+
+}
+
+</script>
+
+</body>
+</html>
