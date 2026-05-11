@@ -46,10 +46,11 @@ body {
 .card {
   width: 100%;
   max-width: 760px;
-  background: rgba(255,255,255,0.78);
+  background: rgba(255,255,255,0.82);
   backdrop-filter: blur(12px);
   border-radius: 28px;
   padding: 55px 45px;
+  text-align: center;
   box-shadow: 0 25px 70px rgba(0,0,0,0.08);
 }
 
@@ -72,6 +73,36 @@ body {
   font-size: 28px;
   line-height: 1.55;
   font-style: italic;
+  margin-bottom: 38px;
+}
+
+.contact-text {
+  margin-top: 45px;
+  margin-bottom: 18px;
+  text-align: center;
+  font-size: 20px;
+  line-height: 1.7;
+  color: #555;
+  font-style: italic;
+}
+
+.arrow {
+  margin-top: 14px;
+  font-size: 34px;
+  animation: arrowMove 2s ease-in-out infinite;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 18px 34px;
+  background: #111;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 13px;
+  border-radius: 0;
 }
 
 .fade-up {
@@ -85,23 +116,27 @@ body {
   transform: translateY(0);
 }
 
-.button {
-  display: inline-block;
-  margin-top: 35px;
-  padding: 18px 34px;
-  background: #111;
-  color: #fff;
-  text-decoration: none;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-size: 13px;
-  border-radius: 0;
-}
-
 @keyframes softAppear {
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes arrowMove {
+  0% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: translateY(8px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 0.7;
   }
 }
 
@@ -130,6 +165,10 @@ body {
 
   .message {
     font-size: 23px;
+  }
+
+  .contact-text {
+    font-size: 18px;
   }
 }
 </style>
@@ -166,8 +205,14 @@ body {
       <div class="value" id="certid">MS-00124</div>
     </div>
 
+    <div class="fade-up contact-text">
+      Чтобы воспользоваться сертификатом,<br>
+      напиши в Instagram и нажми на кнопку ниже 🫶🏻
+      <div class="arrow">↓</div>
+    </div>
+
     <a class="button fade-up" href="https://www.instagram.com/sonich.ph" target="_blank">
-      Активировать сертификат
+      Перейти в Instagram
     </a>
 
   </div>
@@ -204,8 +249,7 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry, index) => {
     if (entry.isIntersecting) {
       setTimeout(() => {
-        entry.
-          target.classList.add("show");
+        entry.target.classList.add("show");
       }, index * 120);
     }
   });
